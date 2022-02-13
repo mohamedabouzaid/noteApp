@@ -66,7 +66,23 @@ yargs.version('1.1.0')
         })
 
 
-
+        yargs.command({
+          command: 'list',
+          describe: 'list note',
+          handler: function () {
+            note.listNote();
+             // note.addNote(argv.title,argv.body)
+         // console.log('title :'+argv.title);
+         // console.log('body :'+argv.body)
+          }
+          })
+  
+  
+  
+  
+  
+  
+  
 
 
 

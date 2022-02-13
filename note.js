@@ -1,3 +1,4 @@
+
 const fs=require('fs')
 /*const note=function(){
     return "note..";
@@ -36,6 +37,13 @@ deleteNote=(title)=>{
     }
    
 }
+//list note
+listNote=()=>{
+    note=loadNote()
+    note.forEach(element => {
+        console.log(element.title)
+    });
+}
 //read notes
 loadNote=()=>{
 var bufferData=fs.readFileSync('note.json')
@@ -50,5 +58,6 @@ saveNote=(note)=>{
 }
 module.exports={
     addNote:addNote,
-    deleteNote:deleteNote
+    deleteNote:deleteNote,
+    listNote:listNote
 };
