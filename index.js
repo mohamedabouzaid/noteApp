@@ -1,6 +1,7 @@
 const note=require('./note.js');
 
-const yargs = require('yargs')
+const yargs = require('yargs');
+const { argv } = require('yargs');
 yargs.version('1.1.0')
 //console.log(note());
 //console.log(process.argv[2]);
@@ -76,6 +77,26 @@ yargs.version('1.1.0')
          // console.log('body :'+argv.body)
           }
           })
+  
+          yargs.command({
+            command: 'read',
+            describe: 'read note',
+            builder:{
+              title:{
+                describe:"title of node",
+                demandOption: true,
+                type:'string'
+                
+              },
+            
+        },
+            handler: function () {
+              note.readNote(argv.title);
+               // note.addNote(argv.title,argv.body)
+           // console.log('title :'+argv.title);
+           // console.log('body :'+argv.body)
+            }
+            })
   
   
   

@@ -1,5 +1,6 @@
 
-const fs=require('fs')
+const fs=require('fs');
+const { title } = require('process');
 /*const note=function(){
     return "note..";
 }*/
@@ -44,7 +45,22 @@ listNote=()=>{
         console.log(element.title)
     });
 }
-//read notes
+//read note by title
+readNote=(title)=>{
+  
+ const note=loadNote()
+  const  filteNOTE=note.find((item)=> item.title==title )
+
+  if(!filteNOTE){
+  console.log("no note find ");
+
+  }
+  else{
+      console.log( filteNOTE.body);
+  }
+
+}
+//read notes from json
 loadNote=()=>{
 var bufferData=fs.readFileSync('note.json')
 var dataJson=bufferData.toString()
@@ -59,5 +75,6 @@ saveNote=(note)=>{
 module.exports={
     addNote:addNote,
     deleteNote:deleteNote,
-    listNote:listNote
+    listNote:listNote,
+    readNote:readNote
 };
